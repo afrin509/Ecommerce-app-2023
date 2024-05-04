@@ -6,11 +6,11 @@ import { connectDB } from "./config/db.js";
 import authRoutes from "./routes/authRoutes.js";
 import categoryRoutes from "./routes/categoryRoutes.js";
 import productRoutes from "./routes/productRoutes.js";
-import path from 'path';
+import path from "path";
 // import bodyParser from "body-parser";
 import cors from "cors";
-import { fileURLToPath } from 'url';
-import { dirname } from 'path';
+import { fileURLToPath } from "url";
+import { dirname } from "path";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -23,7 +23,7 @@ app.use(express.json({ limit: "25mb" }));
 connectDB();
 app.use(cors({ origin: "http://localhost:3000" }));
 
-const buildPath = path.join(__dirname + "/client/build/");
+const buildPath = path.join(__dirname + "/public/");
 // console.log(buildPath)
 app.use(express.static(buildPath));
 app.get("/", function (req, res) {
@@ -51,13 +51,15 @@ app.use("/api/v1/auth", authRoutes);
 app.use("/api/v1/category", categoryRoutes);
 app.use("/api/v1/product", productRoutes);
 // app.get("https://www.amazon.in/s?k=umbrella", scrapeAndStoreProduct);
-app.listen(process.env.PORT, function () {
-  console.log(
-    `server is running on ${process.env.DEV_MODE} port number", ${process.env.PORT}`
-  );
-});
+// app.listen(process.env.PORT, function () {
+//   console.log(
+//     `server is running on ${process.env.DEV_MODE} port number", ${process.env.PORT}`
+//   );
+// });
 
 // app.use("*",HomeRoutes);
-app.get('*', (req,res) =>{
-    res.sendFile(path.join(__dirname + "/client/build/index.html"));
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname + "/public/index.html"));
 });
+
+export default app;
