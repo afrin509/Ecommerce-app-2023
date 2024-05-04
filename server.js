@@ -51,11 +51,11 @@ app.use("/api/v1/auth", authRoutes);
 app.use("/api/v1/category", categoryRoutes);
 app.use("/api/v1/product", productRoutes);
 // app.get("https://www.amazon.in/s?k=umbrella", scrapeAndStoreProduct);
-// app.listen(process.env.PORT, function () {
-//   console.log(
-//     `server is running on ${process.env.DEV_MODE} port number", ${process.env.PORT}`
-//   );
-// });
+app.listen(process.env.PORT, function () {
+  console.log(
+    `server is running on ${process.env.DEV_MODE} port number", ${process.env.PORT}`
+  );
+});
 
 // app.use("*",HomeRoutes);
 app.get("*", (req, res) => {
