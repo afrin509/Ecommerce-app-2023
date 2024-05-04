@@ -6,16 +6,26 @@ import { connectDB } from "./config/db.js";
 import authRoutes from "./routes/authRoutes.js";
 import categoryRoutes from "./routes/categoryRoutes.js";
 import productRoutes from "./routes/productRoutes.js";
+import path from 'path';
 // import bodyParser from "body-parser";
 import cors from "cors";
+import { fileURLToPath } from 'url';
+import { dirname } from 'path';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 app.use(morgan("dev"));
 app.use(express.json({ limit: "25mb" }));
+
 // app.use(bodyParser.urlencoded({ extended: true }));
 // delete app.use(express.bodyParser());
 
 connectDB();
 app.use(cors({ origin: "http://localhost:3000" }));
 
+const buildPath = path.join(__dirname + "/client/build/");
+// console.log(buildPath)
+app.use(express.static(buildPath));
 app.get("/", function (req, res) {
   res.send("hello world");
 });
@@ -45,4 +55,9 @@ app.listen(process.env.PORT, function () {
   console.log(
     `server is running on ${process.env.DEV_MODE} port number", ${process.env.PORT}`
   );
+});
+
+// app.use("*",HomeRoutes);
+app.get('*', (req,res) =>{
+    res.sendFile(path.join(__dirname + "/client/build/index.html"));
 });
