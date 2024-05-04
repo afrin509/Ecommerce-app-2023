@@ -8,7 +8,6 @@ import categoryRoutes from "./routes/categoryRoutes.js";
 import productRoutes from "./routes/productRoutes.js";
 // import bodyParser from "body-parser";
 import cors from "cors";
-import { scrapeAndStoreProduct } from "./client/src/utils/amazonscrapping.js"
 app.use(morgan("dev"));
 app.use(express.json({ limit: "25mb" }));
 // app.use(bodyParser.urlencoded({ extended: true }));
