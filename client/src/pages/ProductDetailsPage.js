@@ -12,7 +12,7 @@ const ProductDetailsPage = () => {
   const [similarProducts, setSimilarProducts] = useState();
   const getProductDetails = async () => {
     const { data } = await axios.get(
-      `http://localhost:8080/api/v1/product/get-product/${
+      `https://ecommerce-app-2023-0ik6.onrender.com/api/v1/product/get-product/${
         location.pathname.split("/")[2]
       }`
     );
@@ -22,7 +22,7 @@ const ProductDetailsPage = () => {
   };
   const getOtherProductsFromCategory = async () => {
     const { data } = await axios.get(
-      `http://localhost:8080/api/v1/product/related-products/${product.category._id}/${product._id}`
+      `https://ecommerce-app-2023-0ik6.onrender.com/api/v1/product/related-products/${product.category._id}/${product._id}`
     );
     console.log("data category", data);
 
@@ -62,7 +62,7 @@ const ProductDetailsPage = () => {
             <div className="row container product-details m-4">
               <div className="col-md-6">
                 <img
-                  src={`http://localhost:8080/api/v1/product/product-photo/${product._id}`}
+                  src={`https://ecommerce-app-2023-0ik6.onrender.com/api/v1/product/product-photo/${product._id}`}
                   className="card-img-top"
                   alt={product.name}
                   style={{
@@ -110,7 +110,7 @@ const ProductDetailsPage = () => {
                       return (
                         <div className="card m-2" style={{ width: "18rem" }}>
                           <img
-                            src={`http://localhost:8080/api/v1/product/product-photo/${p._id}`}
+                            src={`https://ecommerce-app-2023-0ik6.onrender.com/api/v1/product/product-photo/${p._id}`}
                             className="card-img-top"
                             width="100px"
                             height="150px"

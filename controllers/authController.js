@@ -137,7 +137,7 @@ export const forgotPasswordController = async (req, res) => {
     }
   );
 
-  const link = `http://localhost:8080/api/v1/auth/passwordReset/${user._id}/${token}`;
+  const link = `https://ecommerce-app-2023-0ik6.onrender.com/api/v1/auth/passwordReset/${user._id}/${token}`;
   sendEmail(
     user.email,
     "Password Reset Request",
@@ -217,7 +217,7 @@ export const updateProfileController = async (req, res) => {
   try {
     const { name, email, password, address, phone } = req.body;
     const user = await userModel.findById(req.user._id);
-	console.log('password',	password);	
+    console.log("password", password);
     //password
     if (password && password.length < 6) {
       return res.json({ error: "Passsword is required and 6 character long" });

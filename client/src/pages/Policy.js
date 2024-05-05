@@ -38,7 +38,7 @@ const Policy = () => {
   const getAllProducts = async () => {
     try {
       const { data } = await axios.get(
-        "http://localhost:8080/api/v1/product/get-product"
+        "https://ecommerce-app-2023-0ik6.onrender.com/api/v1/product/get-product"
       );
       console.log("i am setting products inside getall products");
 
@@ -157,7 +157,7 @@ const Policy = () => {
                     <div className="col-md-3 me-2">
                       <img
                         src={
-                          "http://localhost:8080/api/v1/product/product-photo/" +
+                          "https://ecommerce-app-2023-0ik6.onrender.com/api/v1/product/product-photo/" +
                           product._id
                         }
                         className="card-img-top"
@@ -233,7 +233,9 @@ const Policy = () => {
             </div>
           </div>
           <div className="row p-3">
-            <h2 className="px-2 mb-0">Customers Who Bought Items in Your Recent History Also Bought</h2>
+            <h2 className="px-2 mb-0">
+              Customers Who Bought Items in Your Recent History Also Bought
+            </h2>
 
             <div id="carouselExample" className="carousel slide">
               <div className="carousel-inner">
@@ -253,7 +255,7 @@ const Policy = () => {
                                 style={{ width: "18rem" }}
                               >
                                 <img
-                                  src={`http://localhost:8080/api/v1/product/product-photo/${p._id}`}
+                                  src={`https://ecommerce-app-2023-0ik6.onrender.com/api/v1/product/product-photo/${p._id}`}
                                   className="card-img-top"
                                   width="100px"
                                   height="200px"

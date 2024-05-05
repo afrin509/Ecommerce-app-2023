@@ -25,7 +25,7 @@ const HomePage = () => {
   const getAllCategory = async () => {
     try {
       const { data } = await axios.get(
-        "http://localhost:8080/api/v1/category/get-category"
+        "https://ecommerce-app-2023-0ik6.onrender.com/api/v1/category/get-category"
       );
       if (data?.success) {
         setCategories(data?.categories);
@@ -56,7 +56,7 @@ const HomePage = () => {
   //   try {
   //     setLoading(true);
   //     const { data } = await axios.post(
-  //       `http://localhost:8080/api/v1/product/product-list/${pageNumber}`,
+  //       `https://ecommerce-app-2023-0ik6.onrender.com/api/v1/product/product-list/${pageNumber}`,
   //       { productsPerPage }
   //     );
   //     console.log("data", data);
@@ -71,7 +71,7 @@ const HomePage = () => {
   const getCountAllProducts = async () => {
     try {
       const { data } = await axios.get(
-        "http://localhost:8080/api/v1/product/product-count"
+        "https://ecommerce-app-2023-0ik6.onrender.com/api/v1/product/product-count"
       );
       setpageCount(Math.ceil(data?.total / productsPerPage));
     } catch (error) {
@@ -81,7 +81,7 @@ const HomePage = () => {
   const getAllProducts = async () => {
     try {
       const { data } = await axios.get(
-        "http://localhost:8080/api/v1/product/get-product"
+        "https://ecommerce-app-2023-0ik6.onrender.com/api/v1/product/get-product"
       );
       setProducts(data.products);
     } catch (error) {
@@ -115,7 +115,7 @@ const HomePage = () => {
 
     try {
       // setIsLoading(true);
-// axios.get(`https://www.amazon.in/s?k=${search}`);
+      // axios.get(`https://www.amazon.in/s?k=${search}`);
       // Scrape the product page
       // const product = await scrapeAndStoreProduct(
       //   `https://www.amazon.in/s?k=${search}`
@@ -152,7 +152,7 @@ const HomePage = () => {
     try {
       setLoading(true);
       const { data } = await axios.post(
-        "http://localhost:8080/api/v1/product/search-product",
+        "https://ecommerce-app-2023-0ik6.onrender.com/api/v1/product/search-product",
         { search }
       );
       setLoading(false);
@@ -195,7 +195,7 @@ const HomePage = () => {
       //   );
       // });
       const { data } = await axios.post(
-        "http://localhost:8080/api/v1/product/filter-products",
+        "https://ecommerce-app-2023-0ik6.onrender.com/api/v1/product/filter-products",
         {
           filteredCategories,
           filteredPrice,
@@ -229,7 +229,7 @@ const HomePage = () => {
     //   setLoading(true);
     //   setPageNumber(index);
     //   const { data } = await axios.post(
-    //     `http://localhost:8080/api/v1/product/product-list/${pageNumber}`,
+    //     `https://ecommerce-app-2023-0ik6.onrender.com/api/v1/product/product-list/${pageNumber}`,
     //     { productsPerPage }
     //   );
     //   if (data.success) {
@@ -333,7 +333,7 @@ const HomePage = () => {
               return (
                 <div className="card m-2" style={{ width: "23rem" }}>
                   <img
-                    src={`http://localhost:8080/api/v1/product/product-photo/${p._id}`}
+                    src={`https://ecommerce-app-2023-0ik6.onrender.com/api/v1/product/product-photo/${p._id}`}
                     className="card-img-top"
                     alt={p.name}
                     width="100px"

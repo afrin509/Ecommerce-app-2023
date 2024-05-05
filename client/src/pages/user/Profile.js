@@ -28,7 +28,7 @@ const Profile = () => {
     e.preventDefault();
     try {
       const { data } = await axios.put(
-        "http://localhost:8080/api/v1/auth/profile",
+        "https://ecommerce-app-2023-0ik6.onrender.com/api/v1/auth/profile",
         {
           name,
           email,
@@ -43,7 +43,7 @@ const Profile = () => {
         console.log("updated-user", data?.updatedUser, auth);
         if (data && data.updatedUser)
           setAuth({ ...auth, user: data.updatedUser });
-        let ls = localStorage.getItem("auth")||"{}";
+        let ls = localStorage.getItem("auth") || "{}";
         ls = JSON.parse(ls);
         if (data && data.updatedUser) ls.user = data.updatedUser;
         localStorage.setItem("auth", JSON.stringify(ls));

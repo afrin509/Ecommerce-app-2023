@@ -2,10 +2,10 @@ import React from "react";
 import { useSearch } from "../../context/search.js";
 
 const SearchInput = () => {
-  const { search, setSearch, setSubmit,submit } = useSearch();
+  const { search, setSearch, setSubmit } = useSearch();
   const handleSubmit = (e) => {
     e.preventDefault();
-    let a=true;
+    let a = true;
     setSubmit(a);
   };
   return (
@@ -21,8 +21,8 @@ const SearchInput = () => {
         aria-label="Search"
         value={search}
         onChange={(e) => {
-          setSearch(e.target.value)
-           setSubmit(false);
+          setSearch(e.target.value);
+          setSubmit(false);
         }}
       />
       <button className="btn btn-outline-secondary" type="submit">

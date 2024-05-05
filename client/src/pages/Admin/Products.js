@@ -59,7 +59,7 @@ const Products = () => {
   const getAllProducts = async () => {
     try {
       const { data } = await axios.get(
-        "http://localhost:8080/api/v1/product/get-product"
+        "https://ecommerce-app-2023-0ik6.onrender.com/api/v1/product/get-product"
       );
       console.log("products", data.products);
       setProducts(data.products);
@@ -105,7 +105,7 @@ const Products = () => {
                 >
                   <div className="card m-2" style={{ width: "18rem" }}>
                     <img
-                      src={`http://localhost:8080/api/v1/product/product-photo/${p._id}`}
+                      src={`https://ecommerce-app-2023-0ik6.onrender.com/api/v1/product/product-photo/${p._id}`}
                       className="card-img-top"
                       width="100px"
                       height="200px"
