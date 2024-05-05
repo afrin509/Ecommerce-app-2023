@@ -23,8 +23,7 @@ app.use(express.json({ limit: "25mb" }));
 connectDB();
 app.use(
   cors({
-    origin:
-      "https://ecommerce-client-project-lmg9f0mky-afrin509s-projects.vercel.app",
+    origin: "*",
   })
 );
 
