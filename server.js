@@ -21,7 +21,12 @@ app.use(express.json({ limit: "25mb" }));
 // delete app.use(express.bodyParser());
 
 connectDB();
-app.use(cors({ origin: "http://localhost:3000" }));
+app.use(
+  cors({
+    origin:
+      "https://ecommerce-client-project-lmg9f0mky-afrin509s-projects.vercel.app",
+  })
+);
 
 const buildPath = path.join(__dirname + "/public/");
 // console.log(buildPath)
@@ -33,6 +38,12 @@ app.get("/hell", function (req, res) {
   res.send("hell");
 });
 app.use((req, res, next) => {
+  // res.header("Access-Control-Allow-Origin", "*"); // Replace '*' with your specific origin(s)
+  // res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
+  // res.header(
+  //   "Access-Control-Allow-Headers",
+  //   "Origin, X-Requested-With, Content-Type, Accept"
+  // );
   const source = req.header("X-Requested-From");
 
   if (source === "frontend") {
